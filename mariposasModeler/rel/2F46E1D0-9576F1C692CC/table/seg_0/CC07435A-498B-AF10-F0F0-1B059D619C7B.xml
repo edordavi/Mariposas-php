@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CC07435A-498B-AF10-F0F0-1B059D619C7B" name="Ejemplar">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:27:45 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="zona" id="5F2A7304-7195-9912-5ACD-5FFEDF4E8E6A">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:31:30 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<delegate>8FA39E56-FDFD-031C-666B-0FF68E354357</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C7615663-37F7-CA92-2B56-0D3FE708B269" referredColumn="55BF264A-59F7-8BF4-10F4-95B4EE7330F3"/>
+</associations>
+</Column>
+<Column name="fecha_captura" id="447940A9-5D4A-1A3D-BE1B-B228999C6DC8">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:31:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="especie" id="2BD285E1-7448-5E6E-09FA-AAF53DFEAFCF">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:31:30 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<delegate>9E8ADADA-0E38-2338-2351-FE7CA8406994</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="40806114-6BDF-3EC6-3ADA-9712186C2B90" referredColumn="9E8ADADA-0E38-2338-2351-FE7CA8406994"/>
+<colAssociation fkAssociation="C7615663-37F7-CA92-2B56-0D3FE708B269" referredColumn="DDDE4FAF-C1AF-B74F-F101-3D5C2356F72A"/>
+</associations>
+</Column>
+<Column name="dni" id="995319A9-9834-FF11-64FF-F81FE745B5E9">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:33:30 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<delegate>C438CF33-E60A-413B-355A-7BC20B459493</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="34B3B40B-11D9-1012-8685-91B2B25279EB" referredColumn="C438CF33-E60A-413B-355A-7BC20B459493"/>
+</associations>
+</Column>
+<Column name="tipo_ejemplar" id="52442B25-CE76-8A0C-654D-B77D7662D603">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:31:30 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3C71601D-5A2C-2E7D-226D-123E9F170778" name="ejemplar_PK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:31:30 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5F2A7304-7195-9912-5ACD-5FFEDF4E8E6A"/>
+<colUsage columnID="447940A9-5D4A-1A3D-BE1B-B228999C6DC8"/>
+<colUsage columnID="2BD285E1-7448-5E6E-09FA-AAF53DFEAFCF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1FBEBF95-6CAB-6B19-21A2-754988330515" name="Ejemplar_Especie_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 02:30:32 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2BD285E1-7448-5E6E-09FA-AAF53DFEAFCF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B6A2C327-F7CE-0480-15C2-77679EA7E7D8" name="Ejemplar_Persona_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 02:47:26 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="995319A9-9834-FF11-64FF-F81FE745B5E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9C70F501-5636-7CD7-3170-C4108243C6FC" name="Ejemplar_ZonaNombreComun_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 15:27:53 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2BD285E1-7448-5E6E-09FA-AAF53DFEAFCF"/>
+<colUsage columnID="5F2A7304-7195-9912-5ACD-5FFEDF4E8E6A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

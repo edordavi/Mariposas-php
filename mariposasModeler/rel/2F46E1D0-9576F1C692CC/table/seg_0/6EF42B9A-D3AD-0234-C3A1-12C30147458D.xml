@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6EF42B9A-D3AD-0234-C3A1-12C30147458D" name="Genero">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:47:46 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="genero" id="C4854184-A8F2-DF4B-39CF-3BD405EE9A93">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:49:00 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="familia" id="3A5BD9AB-FAAB-672E-684E-D47501DAB8A5">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:50:11 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<delegate>5EE25AC9-0FBE-2813-8C5B-7C932BCE7458</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E067EA4F-7162-E92E-8223-0B3EB2263B3D" referredColumn="5EE25AC9-0FBE-2813-8C5B-7C932BCE7458"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="229778E2-4AEF-48CF-46AA-F480184E267B" name="Genero_PK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:49:00 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C4854184-A8F2-DF4B-39CF-3BD405EE9A93"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0001F32B-E543-362C-C952-B63022D7A725" name="Genero_Familia_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 02:18:01 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3A5BD9AB-FAAB-672E-684E-D47501DAB8A5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

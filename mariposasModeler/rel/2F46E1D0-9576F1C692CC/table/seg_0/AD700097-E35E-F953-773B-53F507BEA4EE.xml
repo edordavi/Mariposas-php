@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AD700097-E35E-F953-773B-53F507BEA4EE" name="Observada">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 02:31:01 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="especie" id="1EDD1F23-D4FD-5AA6-2E87-665A972677FE">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 15:28:22 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<delegate>2BD285E1-7448-5E6E-09FA-AAF53DFEAFCF</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9F2EFFC9-7B3A-535B-6C0A-E5403C4EFEEE" referredColumn="2BD285E1-7448-5E6E-09FA-AAF53DFEAFCF"/>
+</associations>
+</Column>
+<Column name="zona" id="A382DAA5-D893-6C7B-7FAA-ECC954479D24">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 03:36:59 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<delegate>5F2A7304-7195-9912-5ACD-5FFEDF4E8E6A</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9F2EFFC9-7B3A-535B-6C0A-E5403C4EFEEE" referredColumn="5F2A7304-7195-9912-5ACD-5FFEDF4E8E6A"/>
+</associations>
+</Column>
+<Column name="fecha_captura" id="04A73F03-3D05-2DC7-5273-49C4923FB0B8">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 03:36:59 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<delegate>447940A9-5D4A-1A3D-BE1B-B228999C6DC8</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9F2EFFC9-7B3A-535B-6C0A-E5403C4EFEEE" referredColumn="447940A9-5D4A-1A3D-BE1B-B228999C6DC8"/>
+</associations>
+</Column>
+<Column name="tiempo" id="76E8F071-C983-AA9E-F4C4-5973461EC76E">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 02:34:40 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="observaciones" id="1A24976F-201A-D27C-159B-2C9080E5D09E">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 02:34:40 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="12994D02-3776-6025-02DD-56428179FD93" name="Observada_PK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 03:36:59 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A382DAA5-D893-6C7B-7FAA-ECC954479D24"/>
+<colUsage columnID="04A73F03-3D05-2DC7-5273-49C4923FB0B8"/>
+<colUsage columnID="1EDD1F23-D4FD-5AA6-2E87-665A972677FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="391C23C6-5CA3-D0E1-9DD4-9AB43D1A19BF" name="Observada_Ejemplar_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 03:37:15 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A382DAA5-D893-6C7B-7FAA-ECC954479D24"/>
+<colUsage columnID="04A73F03-3D05-2DC7-5273-49C4923FB0B8"/>
+<colUsage columnID="1EDD1F23-D4FD-5AA6-2E87-665A972677FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

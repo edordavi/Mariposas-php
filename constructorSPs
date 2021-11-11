@@ -1,0 +1,264 @@
+DROP PROCEDURE IF EXISTS sp_actualiza_ejemplar;
+DELIMITER $$
+
+CREATE PROCEDURE sp_actualiza_ejemplar(zna1 VARCHAR(25),fcp1 DATETIME,esp1 VARCHAR(50),
+	zna2 VARCHAR(25),fcp2 DATETIME,esp2 VARCHAR(50),
+	cap VARCHAR(15),tip VARCHAR(1),nco VARCHAR(50),tip1 DECIMAL(14,2),tip2 VARCHAR(1000))
+BEGIN
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	BEGIN
+		set foreign_key_checks=1;
+		ROLLBACK;
+	END;
+
+	START TRANSACTION;
+		set foreign_key_checks=0;
+		UPDATE Ejemplar
+			SET zona=zna2,fecha_captura=fcp2,especie=esp2,dni=cap,tipo_ejemplar=tip
+			WHERE zona=zna1 AND fecha_captura=fcp1 AND especie=esp1;
+		UPDATE ZonaEjemplar
+			SET zona=zna2,nombre_comun=nco
+			WHERE zona=zna1 AND especie=esp1;
+		
+		IF EXISTS (SELECT * FROM Coleccionada WHERE zona = zna1 
+								AND fecha_captura=fcp1 AND especie = esp1) THEN
+			UPDATE Coleccionada
+				SET zona=zna2,fecha_captura=fcp2,especie=esp2,dni=tip2,precio=tip1
+				WHERE zona=zna1 AND fecha_captura=fcp1 AND especie=esp1;
+			SET @precio = (SELECT SUM(cld.precio) FROM Coleccionada AS cld WHERE dni = tip2);
+			UPDATE Coleccion SET precio_total=@precio
+				WHERE dni=tip2;
+		ELSE
+			UPDATE Observada
+				SET zona=zna2,fecha_captura=fcp2,especie=esp2,observaciones=tip2,tiempo=tip1
+				WHERE zona=zna1 AND fecha_captura=fcp1 AND especie=esp1;
+		END IF;
+		set foreign_key_checks=1;
+	COMMIT;	
+END $$
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS sp_nuevo_ejemplarObservado;
+DELIMITER $$
+
+CREATE PROCEDURE sp_nuevo_ejemplarObservado(zna VARCHAR(25),fcp DATETIME,esp VARCHAR(50),
+	cap VARCHAR(15),tip VARCHAR(1),nco VARCHAR(50),tmp DECIMAL(6),obs VARCHAR(1000))
+BEGIN
+##:zna,:fcp,:esp,:cap,:tip,:tmp,:obs,:nco
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	BEGIN
+		SET foreign_key_checks=1;
+		ROLLBACK;
+	END;
+
+	START TRANSACTION;
+	SET foreign_key_checks=0;
+	INSERT INTO Ejemplar(zona,especie,fecha_captura,dni,tipo_ejemplar)
+		VALUES(zna,esp,fcp,cap,tip);
+	
+	IF NOT EXISTS (SELECT * FROM ZonaEjemplar As zej 
+						WHERE zej.especie=esp AND zej.zona=zna) THEN
+		INSERT INTO ZonaEjemplar (zona,especie,nombre_comun)
+			VALUES(zna,esp,nco);
+	ELSE
+		UPDATE ZonaEjemplar
+			SET nombre_comun=nco
+			WHERE zona=zna AND especie=esp;
+	END IF;
+	
+	INSERT INTO Observada(zona,especie,fecha_captura,tiempo,observaciones)
+		VALUES(zna,esp,fcp,tmp,obs);
+	SET foreign_key_checks=1;
+	COMMIT;
+END $$
+
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS sp_elimina_ejemplar;
+DELIMITER $$
+
+CREATE PROCEDURE sp_elimina_ejemplar(zna VARCHAR(25),fcp DATETIME,esp VARCHAR(50))
+BEGIN
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	BEGIN
+		ROLLBACK;
+	END;
+
+	START TRANSACTION;
+		SET @col = (SELECT dni FROM Coleccionada WHERE zona=zna AND fecha_captura=fcp AND especie = esp);
+
+		DELETE FROM Coleccionada
+			WHERE zona=zna AND fecha_captura=fcp AND especie = esp;
+		DELETE FROM Observada
+			WHERE zona=zna AND fecha_captura=fcp AND especie = esp;
+		DELETE FROM Ejemplar
+			WHERE zona=zna AND fecha_captura=fcp AND especie = esp;
+
+		SET @precio = (SELECT SUM(cld.precio) FROM Coleccionada AS cld WHERE dni = @col);
+
+		UPDATE Coleccion
+			SET precio_total = @precio
+			WHERE dni = @col;
+	COMMIT;
+END $$
+
+DELIMITER ;
+
+SELECT * FROM Coleccionada;
+CALL sp_get_ejemplares("","","","c");
+
+SELECT * FROM Ejemplar
+
+DROP PROCEDURE IF EXISTS sp_get_ejemplares;
+DELIMITER $$
+
+CREATE PROCEDURE sp_get_ejemplares(zna VARCHAR(25),fcp DATETIME,esp VARCHAR(50),tip VARCHAR(1))
+BEGIN
+	IF upper(tip) = 'C' THEN
+		IF (fcp IS NULL) OR (fcp='') OR (fcp=' ') OR (fcp='0000-00-00 00:00:00') THEN
+			SELECT ej.zona As ZONA,ej.fecha_captura As 'FECHA CAPTURA' ,
+				ej.especie As ESPECIE, ej.dni As CAPTURO,
+				zej.nombre_comun As "NOMBRE COMUN",
+				ej.tipo_ejemplar As TIPO,tip.precio As PRECIO,
+				tip.dni AS COLECCIONISTA
+			FROM Ejemplar AS ej
+				INNER JOIN ZonaEjemplar As zej
+					ON zej.zona=ej.zona AND zej.especie=ej.especie
+				INNER JOIN Coleccionada As tip
+					ON tip.zona=ej.zona AND tip.especie=ej.especie 
+						AND tip.fecha_captura=ej.fecha_captura
+			WHERE 	ej.zona LIKE CONCAT("%",zna,"%")
+				AND
+					ej.especie LIKE CONCAT("%",esp,"%")
+			ORDER BY ej.fecha_captura;
+		ELSE
+			SELECT ej.zona As ZONA,ej.fecha_captura As 'FECHA CAPTURA' ,
+				ej.especie As ESPECIE, ej.dni As CAPTURO,
+				zej.nombre_comun As "NOMBRE COMUN",
+				ej.tipo_ejemplar As TIPO,tip.precio As PRECIO,
+				tip.dni AS COLECCIONISTA
+			FROM Ejemplar AS ej
+				INNER JOIN ZonaEjemplar As zej
+					ON zej.zona=ej.zona AND zej.especie=ej.especie
+				INNER JOIN Coleccionada As tip
+					ON tip.zona=ej.zona AND tip.especie=ej.especie 
+						AND tip.fecha_captura=ej.fecha_captura
+			WHERE 	ej.zona LIKE CONCAT("%",zna,"%")
+				AND
+					ej.especie LIKE CONCAT("%",esp,"%")
+				AND
+					ej.fecha_captura = fcp
+			ORDER BY ej.fecha_captura;
+		END IF;
+	ELSEIF upper(tip) = 'O' THEN
+		IF (fcp IS NULL) OR (fcp='') OR (fcp=' ') OR (fcp='0000-00-00 00:00:00') THEN
+			SELECT ej.zona As ZONA,ej.fecha_captura As 'FECHA CAPTURA' ,
+				ej.especie As ESPECIE, ej.dni As CAPTURO,
+				zej.nombre_comun As "NOMBRE COMUN",
+				ej.tipo_ejemplar As TIPO,tip.tiempo As TIEMPO,
+				tip.observaciones AS OBSERVACIONES
+			FROM Ejemplar AS ej
+				INNER JOIN ZonaEjemplar As zej
+					ON zej.zona=ej.zona AND zej.especie=ej.especie
+				INNER JOIN Observada As tip
+					ON tip.zona=ej.zona AND tip.especie=ej.especie 
+						AND tip.fecha_captura=ej.fecha_captura
+			WHERE 	ej.zona LIKE CONCAT("%",zna,"%")
+				AND
+					ej.especie LIKE CONCAT("%",esp,"%")
+			ORDER BY ej.fecha_captura;
+		ELSE
+			SELECT ej.zona As ZONA,ej.fecha_captura As 'FECHA CAPTURA' ,
+				ej.especie As ESPECIE, ej.dni As CAPTURO,
+				zej.nombre_comun As "NOMBRE COMUN",
+				ej.tipo_ejemplar As TIPO,tip.tiempo As TIEMPO,
+				tip.observaciones AS OBSERVACIONES
+			FROM Ejemplar AS ej
+				INNER JOIN ZonaEjemplar As zej
+					ON zej.zona=ej.zona AND zej.especie=ej.especie
+				INNER JOIN Observada As tip
+					ON tip.zona=ej.zona AND tip.especie=ej.especie 
+						AND tip.fecha_captura=ej.fecha_captura
+			WHERE 	ej.zona LIKE CONCAT("%",zna,"%")
+				AND
+					ej.especie LIKE CONCAT("%",esp,"%")
+				AND
+					ej.fecha_captura = fcp
+			ORDER BY ej.fecha_captura;
+		END IF;
+	ELSE
+		IF (fcp IS NULL) OR (fcp='') OR (fcp=' ') OR (fcp='0000-00-00 00:00:00') THEN
+			SELECT ej.zona As ZONA,ej.fecha_captura As 'FECHA CAPTURA' ,
+				ej.especie As ESPECIE, ej.dni As CAPTURO,
+				zej.nombre_comun As "NOMBRE COMUN",
+				ej.tipo_ejemplar As TIPO
+			FROM Ejemplar AS ej
+				INNER JOIN ZonaEjemplar As zej
+					ON zej.zona=ej.zona AND zej.especie=ej.especie
+			WHERE 	ej.zona LIKE CONCAT("%",zna,"%")
+				OR
+					ej.especie LIKE CONCAT("%",esp,"%")
+			ORDER BY ej.fecha_captura;
+		ELSE
+			SELECT ej.zona As ZONA,ej.fecha_captura As 'FECHA CAPTURA' ,
+				ej.especie As ESPECIE, ej.dni As CAPTURO,
+				zej.nombre_comun As "NOMBRE COMUN",
+				ej.tipo_ejemplar As TIPO
+			FROM Ejemplar AS ej
+				INNER JOIN ZonaEjemplar As zej
+					ON zej.zona=ej.zona AND zej.especie=ej.especie
+			WHERE 	ej.zona LIKE CONCAT("%",zna,"%")
+				AND
+					ej.especie LIKE CONCAT("%",esp,"%")
+				AND
+					ej.fecha_captura = fcp
+			ORDER BY ej.fecha_captura;
+		END IF;
+	END IF;
+END $$
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS sp_nuevo_ejemplarColeccionado;
+DELIMITER $$
+CREATE DEFINER=`eavila`@`localhost` PROCEDURE `sp_nuevo_ejemplarColeccionado`(zna VARCHAR(25),fcp DATETIME,esp VARCHAR(50),
+	cap VARCHAR(15),tip VARCHAR(1),nco VARCHAR(50),prc DECIMAL(14,2),col VARCHAR(15))
+BEGIN
+##:zna,:fcp,:esp,:cap,:tip,:prc,:col,:nco
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	BEGIN
+		SET foreign_key_checks=1;
+		ROLLBACK;
+	END;
+
+	START TRANSACTION;
+	SET foreign_key_checks=0;
+	INSERT INTO Ejemplar(zona,especie,fecha_captura,dni,tipo_ejemplar)
+		VALUES(zna,esp,fcp,cap,tip);
+	
+	IF NOT EXISTS (SELECT * FROM ZonaEjemplar As zej 
+						WHERE zej.especie=esp AND zej.zona=zna) THEN
+		INSERT INTO ZonaEjemplar (zona,especie,nombre_comun)
+			VALUES(zna,esp,nco);
+	ELSE
+		UPDATE ZonaEjemplar
+			SET nombre_comun=nco
+			WHERE zona=zna AND especie=esp;
+	END IF;
+	
+	INSERT INTO Coleccionada(zona,especie,fecha_captura,precio,dni)
+		VALUES(zna,esp,fcp,prc,col);
+	
+	SET @precio = (SELECT SUM(cld.precio) FROM Coleccionada AS cld WHERE dni = col);
+
+	UPDATE Coleccion
+		SET precio_total = @precio
+		WHERE dni = col;
+	SET foreign_key_checks=1;
+	COMMIT;
+END$$
+DELIMITER ;
+
+SELECT * FROM ZonaEjemplar

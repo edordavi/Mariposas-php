@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="08DB7A91-CBD7-9820-62BB-FA3A6461D57A" name="ZonaEjemplar">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 15:22:23 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="especie" id="DDDE4FAF-C1AF-B74F-F101-3D5C2356F72A">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 15:26:15 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zona" id="55BF264A-59F7-8BF4-10F4-95B4EE7330F3">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 15:26:15 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<delegate>8FA39E56-FDFD-031C-666B-0FF68E354357</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C0A13312-AA69-2CD2-1014-FB5D6864256C" referredColumn="8FA39E56-FDFD-031C-666B-0FF68E354357"/>
+</associations>
+</Column>
+<Column name="nombre_comun" id="5B8E10EC-2042-0F26-007C-2B30A43F8BD5">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 15:26:15 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DA64032D-EDEB-B1D8-C733-7EDFB7F84C9B" name="ZonaNombreComun_PK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 15:26:15 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DDDE4FAF-C1AF-B74F-F101-3D5C2356F72A"/>
+<colUsage columnID="55BF264A-59F7-8BF4-10F4-95B4EE7330F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="61CC4875-5A06-874C-A62A-113115FEA9F1" name="ZonaNombreComun_Zona_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 15:27:30 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55BF264A-59F7-8BF4-10F4-95B4EE7330F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

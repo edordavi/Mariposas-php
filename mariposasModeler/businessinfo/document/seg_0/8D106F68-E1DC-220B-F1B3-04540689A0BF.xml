@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BIDocument class="oracle.dbtools.crest.model.businessinfo.BIDocument" name="Doc_1" directorySegmentName="seg_0" id="8D106F68-E1DC-220B-F1B3-04540689A0BF">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-29 02:43:52 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+</BIDocument>

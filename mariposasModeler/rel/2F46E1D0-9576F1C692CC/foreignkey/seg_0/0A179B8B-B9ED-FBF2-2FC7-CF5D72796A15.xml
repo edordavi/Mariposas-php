@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0A179B8B-B9ED-FBF2-2FC7-CF5D72796A15" name="Especie_Genero_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 02:18:25 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<containerWithKeyObject>3670E240-D284-269F-D076-65AE42105067</containerWithKeyObject>
+<deleteRule>CASCADE</deleteRule>
+<localFKIndex>1AF3C499-6AEC-6FDF-1D55-3600EA428E01</localFKIndex>
+<keyObject>229778E2-4AEF-48CF-46AA-F480184E267B</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

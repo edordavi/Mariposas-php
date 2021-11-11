@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3670E240-D284-269F-D076-65AE42105067" name="Especie">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:45:38 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="especie" id="9E8ADADA-0E38-2338-2351-FE7CA8406994">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:46:57 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre_cientifico" id="61196547-02CC-39FF-412A-B6D9FED2BF96">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:46:57 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="genero" id="50C90D33-3FD5-EFE4-D5DB-CA01CC122E12">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:50:33 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<delegate>C4854184-A8F2-DF4B-39CF-3BD405EE9A93</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0A179B8B-B9ED-FBF2-2FC7-CF5D72796A15" referredColumn="C4854184-A8F2-DF4B-39CF-3BD405EE9A93"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="779D1977-804E-A7CB-1BB2-E989C5A7F761" name="Especie_PK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 00:46:57 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E8ADADA-0E38-2338-2351-FE7CA8406994"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1AF3C499-6AEC-6FDF-1D55-3600EA428E01" name="Especie_Genero_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 02:18:26 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="50C90D33-3FD5-EFE4-D5DB-CA01CC122E12"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

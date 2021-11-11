@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="08DB7A91-CBD7-9820-62BB-FA3A6461D57A" name="ZonaEjemplar" seqName="seg_0"/>
+   <object objectType="Table" objectID="3670E240-D284-269F-D076-65AE42105067" name="Especie" seqName="seg_0"/>
+   <object objectType="Table" objectID="44E08F5E-C65A-3E8E-94DD-A31B0D4D1939" name="Coleccion" seqName="seg_0"/>
+   <object objectType="Table" objectID="5AE2C78F-C040-112A-05C1-C012863E610B" name="Persona" seqName="seg_0"/>
+   <object objectType="Table" objectID="6EF42B9A-D3AD-0234-C3A1-12C30147458D" name="Genero" seqName="seg_0"/>
+   <object objectType="Table" objectID="82582A18-D7B1-DF4D-A434-2CF9F93800D4" name="Zona" seqName="seg_0"/>
+   <object objectType="Table" objectID="AD700097-E35E-F953-773B-53F507BEA4EE" name="Observada" seqName="seg_0"/>
+   <object objectType="Table" objectID="C747BF68-210C-77D5-7674-2ACEB37C0AC7" name="Familia" seqName="seg_0"/>
+   <object objectType="Table" objectID="CC07435A-498B-AF10-F0F0-1B059D619C7B" name="Ejemplar" seqName="seg_0"/>
+   <object objectType="Table" objectID="DDAE855B-DFDA-517D-8913-C71D8CEBD625" name="Coleccionada" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="0A179B8B-B9ED-FBF2-2FC7-CF5D72796A15" name="Especie_Genero_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="230E7153-41CA-6D8C-BBEA-EAC6C7AE5036" name="Coleccionada_Ejemplar_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="34B3B40B-11D9-1012-8685-91B2B25279EB" name="Ejemplar_Persona_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="40806114-6BDF-3EC6-3ADA-9712186C2B90" name="Ejemplar_Especie_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="8B51FEC6-0937-CCCB-C96E-0E9DF924387C" name="Coleccion_Persona_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="9F2EFFC9-7B3A-535B-6C0A-E5403C4EFEEE" name="Observada_Ejemplar_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="C0A13312-AA69-2CD2-1014-FB5D6864256C" name="ZonaNombreComun_Zona_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="C7615663-37F7-CA92-2B56-0D3FE708B269" name="Ejemplar_ZonaNombreComun_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="D1B07E63-3B54-A3A7-2B32-3BB84FECFAC5" name="Coleccionada_Coleccion_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="E067EA4F-7162-E92E-8223-0B3EB2263B3D" name="Genero_Familia_FK" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

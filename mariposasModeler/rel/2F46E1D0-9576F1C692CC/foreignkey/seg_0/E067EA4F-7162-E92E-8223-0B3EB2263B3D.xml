@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E067EA4F-7162-E92E-8223-0B3EB2263B3D" name="Genero_Familia_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 02:18:01 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<containerWithKeyObject>6EF42B9A-D3AD-0234-C3A1-12C30147458D</containerWithKeyObject>
+<deleteRule>CASCADE</deleteRule>
+<localFKIndex>0001F32B-E543-362C-C952-B63022D7A725</localFKIndex>
+<keyObject>A4C26621-104B-82FB-D6AA-D5D7B34CC17E</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

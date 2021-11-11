@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="44E08F5E-C65A-3E8E-94DD-A31B0D4D1939" name="Coleccion">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 01:06:06 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="dni" id="907D5D75-B922-5F35-FCCB-FF89E74BBF45">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 01:09:54 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<delegate>C438CF33-E60A-413B-355A-7BC20B459493</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8B51FEC6-0937-CCCB-C96E-0E9DF924387C" referredColumn="C438CF33-E60A-413B-355A-7BC20B459493"/>
+</associations>
+</Column>
+<Column name="fecha_inicial" id="1D333788-D67C-609A-8E14-8371BC4BDC3C">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 01:09:54 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="precio_total" id="2E74CB46-4D0E-FE3B-FAF8-A1EEB3EBAED2">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 01:09:54 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>14</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DD0AAAA1-21C8-1C07-5402-77C047A98E74" name="Coleccion_PK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 01:09:54 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="907D5D75-B922-5F35-FCCB-FF89E74BBF45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="775D718C-C66B-D343-8C7F-35AD039C7AD5" name="Coleccion_Persona_FK">
+<createdBy>eavila</createdBy>
+<createdTime>2014-04-28 01:53:12 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mariposasModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="907D5D75-B922-5F35-FCCB-FF89E74BBF45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
